@@ -28,49 +28,6 @@ The suspended-load provenance information used here originates from the **non-li
 
 That repository contains the code and data used to go from X-ray diffraction (XRD) measurements of source and suspended-sediment samples to spatially distributed erosion-rate maps.
 
-The XRD workflow can be summarised as:
-
-```text
-Source samples + suspended sediment
-              │
-              ▼
-        XRD analysis
-              │
-              ▼
-  Corrected XRD peak areas
-              │
-              ▼
-  Tracer mineral concentrations
-              │
-              ├───────────────┐
-              │               │
-              ▼               ▼
-      Source fingerprints   Sediment fingerprint
-              │               │
-              └───────┬───────┘
-                      │
-                      ▼
-              Geological map
-                      │
-                      ▼
-           Non-linear inversion
-                      │
-                      ▼
-       Spatial erosion-rate map
-                      │
-                      ▼
-       Suspended-load provenance
-              input used here
-```
-
-The companion repository describes the workflow as involving:
-
-1. sampling of source areas and suspended sediment at the catchment outlet;
-2. XRD analysis and correction of the raw diffractograms;
-3. identification and binning of tracer-mineral peaks using characteristic `2θ` windows;
-4. construction of source and detrital mineralogical fingerprints; and
-5. inversion using the sediment data, source data, and geological map.
-
 The inversion treats the suspended-sediment signal as a weighted combination of the tracer-mineral concentrations of the source areas, with the weights corresponding to spatially varying erosion rates. Erosion rates are parameterised in log-space, which imposes a positivity constraint and makes the inverse problem non-linear. The companion repository tests both steepest-descent and quasi-Newton approaches.
 
 For the full XRD processing, fingerprint generation, inversion methodology, and uncertainty/resolution analysis, please refer to:
